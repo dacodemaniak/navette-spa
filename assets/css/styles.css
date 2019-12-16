@@ -1,0 +1,45 @@
+/**
+* styles.css : styles de base de l'application
+**/
+
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body {
+    font-family: Lato, sans-serif;
+    font-size: 1em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#date-selector {
+    /** Selector for an IDentified element **/
+    height: 3em;
+    background-color: rgba(240, 120, 0, 1);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: .5em;
+}
+
+#date-selector div:nth-child(2) {
+    text-align: center;
+}
+
+#date-selector div:last-child {
+    text-align: right;
+}
+
+.tour {
+    /** Selector for a class attributed element **/
+    height: 6em;
+    background-color: hsla(325, 15%, 60%, .7);
+    font-weight: bold;
+    color: hsla(325, 33%, 95%, .7);
+    border-radius: 0.25em;
+    margin-bottom: 1em;
+}
+
+.tour.bordered {
+    border: solid 1px hsla(325, 60%, 60%, .7);
+}

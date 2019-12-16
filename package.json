@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/dacodedmaniak/dirty-navette/issues"
   },
-  "homepage": "https://github.com/dacodedmaniak/dirty-navette#readme"
+  "homepage": "https://github.com/dacodedmaniak/dirty-navette#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
 }
