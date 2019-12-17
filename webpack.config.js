@@ -7,8 +7,8 @@ module.exports = {
     entry: './src/main.ts',
     output: {
         path: path.resolve(__dirname, 'dist/js'),
-        filename: 'app.js',
-        chunkFilename: "app.chunk.js"
+        filename: 'main.js',
+        chunkFilename: "main.chunk.js"
     },
     optimization: {
         minimizer: [new TerserPlugin()],

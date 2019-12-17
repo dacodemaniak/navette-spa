@@ -9,7 +9,8 @@
          "allowSyntheticDefaultImports": true,
          "target": "es2015",
          "allowJs": true,
-         
+         "sourceMap": true,
+         "removeComments": true,
          "lib": ["dom", "dom.iterable", "es6", "es2015.promise"]
     }
 }
