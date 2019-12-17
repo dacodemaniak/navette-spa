@@ -12,7 +12,8 @@
     <link href="./assets/css/styles.css" rel="stylesheet">
 
     <!-- Add scripts -->
-    <script src="./dist/src/main.js"></script>
+    <script src="./dist/js/main.chunk.js"></script>
+    <script src="./dist/js/main.js"></script>
     
 </head>
 
@@ -26,7 +27,7 @@
             </div>
 
             <div class="col-8">
-                <span>17 déc. 2019</span>
+                <span id="current-date"></span>
             </div>
 
             <div class="col-2">
@@ -145,6 +146,12 @@
                 </li>
             </ul>
         </main>
+    </div>
+    <!-- App loader -->
+    <div id="app-loader" class="outer-loader">
+        <div class="inner-loader">
+            <img src="./assets/images/loader.gif" alt="Application loader animation">
+        </div>
     </div>
 </body>
 
