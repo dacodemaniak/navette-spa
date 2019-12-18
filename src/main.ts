@@ -24,6 +24,7 @@ export class Main {
                 const initialDate: JQuery = $('span#current-date');
 
                 initialDate.html(currentDate.format('D MMM YYYY'));
+                
                 initialDate.data('first', currentDate.toString());
                 initialDate.data('current', currentDate.toString());
                 

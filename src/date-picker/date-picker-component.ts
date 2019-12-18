@@ -44,7 +44,9 @@ export class DatePickerComponent {
                 currentDate.subtract(1, 'd');
 
                 this.currentDate.html(currentDate.format('D MMM YYYY'));
+
                 this.currentDate.data('current', currentDate.toString());
+                
                 // Check if the first date is reached
                 if (currentDate.isSame(firstDate, 'day')) {
                     this.previousButton.addClass('disabled');
