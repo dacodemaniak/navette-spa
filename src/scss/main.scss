@@ -1,0 +1,14 @@
+/**
+* main
+* @author Aélion
+* @version 1.0.0
+*   Import and load all scss components
+**/
+
+@import "./variables.scss";
+@import "./toolbar.scss";
+@import "./tile.scss";
+body {
+    font-family: $main_font_family;
+    font-size: 1em;
+}

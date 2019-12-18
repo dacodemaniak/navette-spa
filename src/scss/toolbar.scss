@@ -1,0 +1,23 @@
+/**
+* toolbar
+* @version 1.0.0
+* @author Aélion
+**/
+
+#date-selector {
+    background-color: $toolbar_color;
+    color: $tile_background_color;
+    margin-bottom: 1em;
+    a[role="button"] {
+        background-color: $toolbar_button_color;
+        color: $tile_background_color;
+    }
+    div {
+        &:last-child {
+            text-align: right;
+        }
+        &:nth-child(2) {
+            text-align: center;
+        }
+    }
+}

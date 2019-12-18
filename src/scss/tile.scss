@@ -1,0 +1,18 @@
+/**
+* tile
+* @author Aélion
+* @version 1.0.0
+*   Design tiles
+**/
+
+main {
+    ul {
+        li {
+            &.tour {
+                height: 6em;
+                background-color: $tile_background_color;
+                margin-bottom: 1em;
+            }
+        }
+    }
+}
