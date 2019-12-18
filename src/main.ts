@@ -1,6 +1,10 @@
 import * as $ from 'jquery'; // Imports jQuery module in Typescript
 import * as moment from 'moment';
 import { DatePickerComponent } from './date-picker/date-picker-component';
+import { UserChoiceComponent } from './user-choice/user-choice-component';
+
+import './scss/main.scss';
+
 /**
  * Main
  * @author Aélion
@@ -24,12 +28,13 @@ export class Main {
                 const initialDate: JQuery = $('span#current-date');
 
                 initialDate.html(currentDate.format('D MMM YYYY'));
-                
+
                 initialDate.data('first', currentDate.toString());
                 initialDate.data('current', currentDate.toString());
                 
                 // Sets the event handlers
                 new DatePickerComponent();
+                new UserChoiceComponent();
 
                 $('#app-loader').addClass('hidden');
             },
