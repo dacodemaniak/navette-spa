@@ -1,5 +1,6 @@
 import * as $ from 'jquery';
 import { ModalModule } from './../modules/modal/modal.module';
+import { InnerOptions } from './../modules/modal/inner-options-interface';
 
 /**
  * UserChoiceComponent
@@ -19,7 +20,11 @@ export class UserChoiceComponent {
         $('form button').on(
             'click',
             (event: any): void => {
-                const modal: ModalModule = new ModalModule();
+                const modalSettings: InnerOptions = {
+                    width: 600,
+                    height: 500
+                };
+                const modal: ModalModule = new ModalModule(modalSettings);
             }
         );
     }
