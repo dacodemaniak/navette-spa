@@ -3,36 +3,35 @@ import * as $ from 'jquery';
 import './view/modal.scss';
 import { InnerOptions } from './inner-options-interface';
 
-export class ModalModule {
+export abstract class ModalModule {
 
-    private view: JQuery = null;
-    private height: number;
-    private width: number;
+    protected view: JQuery = null;
+    
+    protected datas: any;
+    protected innerOptions: InnerOptions = {
+        height: 500,
+        width: 600,
+        unit: 'px'
+    };
 
-    public constructor(innerOptions?: InnerOptions) {
-        this.loadView().then((view) => {
-            let unit: string = 'px';
-            if (innerOptions) {
-                if (innerOptions.unit) {
-                    unit = innerOptions.unit;
-                }
-            }
-
-            this.view = $(view);
-            console.log('okay guys, modal html is loaded');
-            this.view.find('.inner-modal').css(
-                'height',
-                innerOptions ? innerOptions.height + unit : '300px'
-            )
-            .css(
-                'width',
-                innerOptions ? innerOptions.width + unit : '300px'
-            );
-            $('body').append(this.view);
-        });
+    public constructor(datas: any, innerOptions?: InnerOptions) {
+        this.datas = datas;
+        this.setOptions(innerOptions);
     }
 
-    private loadView(): Promise<HTMLElement> {
+    public abstract show(): void;
+
+    protected closeHandler(): void {
+        $('button.close').on(
+            'click',
+            (event: any): void => {
+                console.log('Remove view from DOM');
+                this.view.remove(); // Removes view from DOM
+            }
+        );
+    }
+
+    protected loadView(): Promise<HTMLElement> {
         return new Promise<HTMLElement>((resolve) => {
             $.get(
                 'src/modules/modal/view/modal.html',
@@ -41,5 +40,17 @@ export class ModalModule {
                 }
             );
         });
+    }
+
+    private setOptions(innerOptions: InnerOptions): void {
+        if (innerOptions) {
+            this.innerOptions.height = innerOptions.height;
+            this.innerOptions.width = innerOptions.width;
+            if (!this.innerOptions.unit) {
+                this.innerOptions.unit = 'px';
+            } else {
+                this.innerOptions.unit = innerOptions.unit;
+            }
+        }
     }
 }

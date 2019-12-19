@@ -14,6 +14,12 @@ div {
             @include vertical-centered;
             margin: 0 auto;
             background-color: lighten($modal_background_color, 50);
+            div {
+                &.row {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
         }
     }
 }

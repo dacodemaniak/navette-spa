@@ -1,6 +1,6 @@
 import * as $ from 'jquery';
-import { ModalModule } from './../modules/modal/modal.module';
 import { InnerOptions } from './../modules/modal/inner-options-interface';
+import { ResaModal } from './../modules/modal/resa-modal';
 
 /**
  * UserChoiceComponent
@@ -24,7 +24,14 @@ export class UserChoiceComponent {
                     width: 600,
                     height: 500
                 };
-                const modal: ModalModule = new ModalModule(modalSettings);
+                // Get datas of the reservation
+                const userChoice: any = {};
+                const form: JQuery = $(event.target).parent('form');
+                userChoice.hour = form.prev('div').children('span').html();
+                userChoice.places = form.find('select').children('option:selected').val();
+                
+                const modal: ResaModal = new ResaModal(userChoice, modalSettings);
+                modal.show();
             }
         );
     }
