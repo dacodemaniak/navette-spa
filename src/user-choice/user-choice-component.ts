@@ -1,4 +1,5 @@
 import * as $ from 'jquery';
+import { ModalModule } from './../modules/modal/modal.module';
 
 /**
  * UserChoiceComponent
@@ -8,10 +9,21 @@ import * as $ from 'jquery';
  */
 export class UserChoiceComponent {
 
+
     public constructor() {
         this.changeHandler();
+        this.buttonHandler();
     }
-    
+
+    private buttonHandler() {
+        $('form button').on(
+            'click',
+            (event: any): void => {
+                const modal: ModalModule = new ModalModule();
+            }
+        );
+    }
+
     private changeHandler(): void {
         $('select').on(
             'change',
@@ -38,7 +50,9 @@ export class UserChoiceComponent {
             let currentForm: JQuery = select.parents('form');
             if (currentForm.attr('id') !== form.attr('id')) {
                 form.find('select').children('option').removeAttr('selected');
+                form.find('select').children('option').prop('selected', false);
                 form.find('select').children('option:first').attr('selected', 'selected');
+                form.find('select').children('option:first').prop('selected', true);
                 form.children('button').attr('disabled', 'disabled');
             }
         });
