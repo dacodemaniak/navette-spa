@@ -56,36 +56,3 @@ ul {
 [nextDate]:hover {
     transform: rotate(180deg);
 }
-
-
-/**
-* App loader design
-**/
-
-#app-loader.outer-loader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(128, 128, 128, .7);
-}
-
-#app-loader.outer-loader .inner-loader {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 200px;
-    width: 300px;
-    margin: 0 auto;
-}
-
-#app-loader.outer-loader .inner-loader img {
-    height: inherit;
-    width: inherit;
-    display: block;
-}
-
-#app-loader.hidden {
-    display: none;
-}
