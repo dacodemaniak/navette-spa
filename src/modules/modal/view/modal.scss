@@ -20,6 +20,22 @@ div {
                     margin-right: 0;
                 }
             }
+            button[role="cancel"] {
+                &.close {
+                    font-size: 1em;
+                    font-weight: normal;
+                }
+            }
+            form {
+                label {
+                    &.required {
+                        &::after {
+                            content: " (*)";
+                            color: $required;
+                        }
+                    }
+                }
+            }
         }
     }
 }

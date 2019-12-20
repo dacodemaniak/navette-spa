@@ -11,6 +11,7 @@
          "allowJs": true,
          "sourceMap": true,
          "removeComments": true,
+         "experimentalDecorators": true,
          "lib": ["dom", "dom.iterable", "es6", "es2015.promise"]
     }
 }

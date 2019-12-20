@@ -6,16 +6,16 @@ import { InnerOptions } from './inner-options-interface';
 export abstract class ModalModule {
 
     protected view: JQuery = null;
-    
-    protected datas: any;
+    protected event: any;
+    protected datas: any = {};
     protected innerOptions: InnerOptions = {
         height: 500,
         width: 600,
         unit: 'px'
     };
 
-    public constructor(datas: any, innerOptions?: InnerOptions) {
-        this.datas = datas;
+    public constructor(event: any, innerOptions?: InnerOptions) {
+        this.event = event;
         this.setOptions(innerOptions);
     }
 
@@ -31,12 +31,23 @@ export abstract class ModalModule {
         );
     }
 
-    protected loadView(): Promise<HTMLElement> {
-        return new Promise<HTMLElement>((resolve) => {
+    protected loadView(): Promise<void> {
+        console.log('Retrieve template');
+
+        return new Promise<void>((resolve) => {
             $.get(
                 'src/modules/modal/view/modal.html',
                 (htmlContent: any) => {
-                    resolve(htmlContent);
+                    this.view = $(htmlContent);
+                    this.view.find('.inner-modal').css(
+                        'height',
+                        this.innerOptions.height + this.innerOptions.unit
+                    )
+                    .css(
+                        'width',
+                        this.innerOptions.width + this.innerOptions.unit
+                    );
+                    resolve();
                 }
             );
         });
